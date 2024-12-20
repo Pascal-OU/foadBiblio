@@ -1,0 +1,11 @@
+{# Vue pour modifier un commentaire #}
+{# templates/comment/edit.html.twig #}
+
+<h1>Modifier le commentaire</h1>
+
+{{ form_start(form) }}
+    {{ form_row(form.content) }}
+    <button type="submit">Enregistrer les modifications</button>
+{{ form_end(form) }}
+
+<a href="{{ path('livre_show', {id: comment.livre.id}) }}">Retour au livre</a>

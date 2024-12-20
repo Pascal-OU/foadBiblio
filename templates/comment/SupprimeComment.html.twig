@@ -1,0 +1,20 @@
+{# Vue Supprimer un commentaire #}
+{# templates/book/show.html.twig #}
+
+<h1>{{ book.title }}</h1>
+
+{# Afficher les commentaires du livre #}
+<h2>Commentaires :</h2>
+<ul>
+    {% for comment in book.comments %}
+        <li>
+            <strong>{{ comment.user.username }}</strong>: {{ comment.content }}
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('comment_edit', {id: comment.id}) }}">Modifier</a>
+                <a href="{{ path('comment_delete', {id: comment.id}) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ?')">Supprimer</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{{ path('livre_list') }}">Retour à la liste des livres</a>

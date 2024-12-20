@@ -1,0 +1,11 @@
+{# Vue pour ajouter un commentaire #}
+{# templates/livre/comment.html.twig #}
+
+<h1>Ajouter un commentaire pour "{{ livre.title }}"</h1>
+
+{{ form_start(form) }}
+    {{ form_row(form.content) }}
+    <button type="submit">Ajouter le commentaire</button>
+{{ form_end(form) }}
+
+<a href="{{ path('livre_show', {id: livre.id}) }}">Retour au livre</a>

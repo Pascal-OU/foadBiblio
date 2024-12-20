@@ -1,0 +1,14 @@
+{# Vue pour la recherche #}
+{# templates/livre/search.html.twig #}
+<form method="get" action="{{ path('app_search') }}">
+    <input type="text" name="q" value="{{ query }}" placeholder="Rechercher un livre...">
+    <button type="submit">Rechercher</button>
+</form>
+
+<ul>
+{% for livre in livre %}
+    <li>{{ livre.title }} - {{ livre.auteur }}</li>
+{% else %}
+    <li>Aucun résultat trouvé.</li>
+{% endfor %}
+</ul>

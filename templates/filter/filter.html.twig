@@ -1,0 +1,22 @@
+{# Vue pour afficher le formulaire et les livres filtrés #}
+{# templates/livre/filter.html.twig #}
+
+<h1>Filtrer les livres</h1>
+
+{# Formulaire de filtrage par catégorie #}
+{{ form_start(form) }}
+    {{ form_row(form.category) }}
+    <button type="submit">Filtrer</button>
+{{ form_end(form) }}
+
+{# Affichage des livres filtrés #}
+<h2>Livres filtrés :</h2>
+<ul>
+    {% if livre is empty %}
+        <li>Aucun livre trouvé pour cette catégorie.</li>
+    {% else %}
+        {% for livre in livre %}
+            <li>{{ livre.title }} - {{ livre.auteur }} ({{ livre.category }})</li>
+        {% endfor %}
+    {% endif %}
+</ul>
